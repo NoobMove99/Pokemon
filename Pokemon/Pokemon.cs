@@ -86,5 +86,12 @@ namespace Pokemon
             }
             
         }
+        public int Total
+        {
+            get
+            {
+                return (HP_Base + Attack_base + Defense_base + SpecialAttack_base + SpecialDefense_base + Speed);
+            }
+        }
     }
 }
