@@ -8,7 +8,7 @@ namespace Pokemon
 {
     class Pokemon
     {
-        private int level;
+        private int level = 1;
         private int hp_base;
         private int attack_base;
         private int defense_base;
@@ -65,5 +65,15 @@ namespace Pokemon
             get; set;
         }
         public int Nummer { get; set; }
+
+        public int Level
+        {
+            get { return level; }
+            private set { level = value; }
+        }
+        public void VerhoogLevel()
+        {
+            Level++;
+        }
     }
 }
