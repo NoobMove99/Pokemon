@@ -10,6 +10,7 @@ namespace Pokemon
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
