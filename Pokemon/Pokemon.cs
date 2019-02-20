@@ -75,5 +75,16 @@ namespace Pokemon
         {
             Level++;
         }
+        public int Average
+        {
+            get
+            {
+                int average = 0;
+                average = HP_Base + Attack_base + Defense_base + SpecialAttack_base + SpecialDefense_base + Speed;
+                average = average / 6;
+                return average;
+            }
+            
+        }
     }
 }
