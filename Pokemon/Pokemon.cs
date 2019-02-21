@@ -75,6 +75,10 @@ namespace Pokemon
         {
             Level++;
         }
+        public void VerhoogLevel(int aantal)
+        {
+            Level = Level + aantal;
+        }
         public int Average
         {
             get
