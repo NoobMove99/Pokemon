@@ -104,6 +104,13 @@ namespace Pokemon
                 return (((HP_Base + 50) * level) / 50) + 10;
             }
         }
+        public int Attack_Full
+        {
+            get
+            {
+                return ((Attack_base * Level) / 50) + 5;
+            }
+        }
         public int Defense_Full
         {
             get
@@ -131,6 +138,11 @@ namespace Pokemon
             {
                 return ((SpecialAttack_base * Level) / 50) + 5;
             }
+        }
+        public void LevelUpTester(int ingegevenlevel)
+        {
+            Level = ingegevenlevel;
+            Console.WriteLine(Name + " Stats: " + HP_Full + ", " + Attack_Full + ", " + Defense_Full + ", " + SpecialAttack_Full + ", " + SpecialDefense_Full + ", " + Speed_Full);
         }
     }
 }
