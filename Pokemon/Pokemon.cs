@@ -88,7 +88,7 @@ namespace Pokemon
                 average = average / 6;
                 return average;
             }
-            
+
         }
         public int Total
         {
@@ -143,6 +143,24 @@ namespace Pokemon
         {
             Level = ingegevenlevel;
             Console.WriteLine(Name + " Stats: " + HP_Full + ", " + Attack_Full + ", " + Defense_Full + ", " + SpecialAttack_Full + ", " + SpecialDefense_Full + ", " + Speed_Full);
+        }
+        public void ShowInfo()
+        {
+            Console.WriteLine(Name + "  (level " + Level + ")");
+            Console.WriteLine("Base Stats:");
+            Console.WriteLine("     *Health = " + HP_Base);
+            Console.WriteLine("     *Speed = " + Speed);
+            Console.WriteLine("     *Attack = " + Attack_base);
+            Console.WriteLine("     *Defense = " + Defense_base);
+            Console.WriteLine("     *Special Attack = " + SpecialAttack_base);
+            Console.WriteLine("     *Special Defense = " + SpecialDefense_base);
+            Console.WriteLine("Full stats: ");
+            Console.WriteLine("     *Health = " + HP_Full);
+            Console.WriteLine("     *Speed = " + Speed_Full);
+            Console.WriteLine("     *Attack = " + Attack_Full);
+            Console.WriteLine("     *Defense = " + Defense_Full);
+            Console.WriteLine("     *Special Attack = " + SpecialAttack_Full);
+            Console.WriteLine("     *Special Defense = " + SpecialDefense_Full);
         }
     }
 }
