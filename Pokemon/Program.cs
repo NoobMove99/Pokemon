@@ -17,6 +17,7 @@ namespace Pokemon
             Squirtle.SpecialAttack_base = 50;
             Squirtle.SpecialDefense_base = 64;
             Squirtle.Speed = 43;
+            Squirtle.VerhoogLevel(15);
             Console.WriteLine("Squirtle:");
             Console.WriteLine("Full HP: " + Squirtle.HP_Full + " Total: " + Squirtle.Total + " Average: " + Squirtle.Average);
             Pokemon Mewtwo = new Pokemon();
@@ -26,6 +27,7 @@ namespace Pokemon
             Mewtwo.SpecialAttack_base = 154;
             Mewtwo.SpecialDefense_base = 690;
             Mewtwo.Speed = 130;
+            Mewtwo.VerhoogLevel(99);
             Console.WriteLine("Mewtwo:");
             Console.WriteLine("Full HP: " + Mewtwo.HP_Full + " Total: " + Mewtwo.Total + " Average: " + Mewtwo.Average);
             Console.ReadLine();
