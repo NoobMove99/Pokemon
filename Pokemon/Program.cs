@@ -20,14 +20,15 @@ namespace Pokemon
             Console.WriteLine("Squirtle:");
             Console.WriteLine("Full HP: " + Squirtle.HP_Full + " Total: " + Squirtle.Total + " Average: " + Squirtle.Average);
             Pokemon Mewtwo = new Pokemon();
-            Mewtwo.Attack_base = 48;
-            Mewtwo.Defense_base = 65;
-            Mewtwo.HP_Base = 44;
-            Mewtwo.SpecialAttack_base = 50;
-            Mewtwo.SpecialDefense_base = 64;
-            Mewtwo.Speed = 43;
+            Mewtwo.Attack_base = 110;
+            Mewtwo.Defense_base = 90;
+            Mewtwo.HP_Base = 106;
+            Mewtwo.SpecialAttack_base = 154;
+            Mewtwo.SpecialDefense_base = 690;
+            Mewtwo.Speed = 130;
             Console.WriteLine("Mewtwo:");
             Console.WriteLine("Full HP: " + Mewtwo.HP_Full + " Total: " + Mewtwo.Total + " Average: " + Mewtwo.Average);
+            Console.ReadLine();
 
         }
     }
