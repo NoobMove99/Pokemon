@@ -11,6 +11,9 @@ namespace Pokemon
         static void Main(string[] args)
         {
             Pokemon Squirtle = new Pokemon();
+            Squirtle.Name = "Squirtle";
+            Squirtle.Type = "Water";
+            Squirtle.Nummer = 7;
             Squirtle.Attack_base = 48;
             Squirtle.Defense_base = 65;
             Squirtle.HP_Base = 44;
@@ -21,6 +24,9 @@ namespace Pokemon
             Console.WriteLine("Squirtle:");
             Console.WriteLine("Full HP: " + Squirtle.HP_Full + " Total: " + Squirtle.Total + " Average: " + Squirtle.Average);
             Pokemon Mewtwo = new Pokemon();
+            Mewtwo.Name = "Mewtwo";
+            Mewtwo.Type = "Physic";
+            Mewtwo.Nummer = 150;
             Mewtwo.Attack_base = 110;
             Mewtwo.Defense_base = 90;
             Mewtwo.HP_Base = 106;
