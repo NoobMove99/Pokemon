@@ -93,5 +93,40 @@ namespace Pokemon
                 return (HP_Base + Attack_base + Defense_base + SpecialAttack_base + SpecialDefense_base + Speed);
             }
         }
+        public int HP_Full
+        {
+            get
+            {
+                return (((HP_Base + 50) * level) / 50) + 10;
+            }
+        }
+        public int Defense_Full
+        {
+            get
+            {
+                return ((Defense_base * Level) / 50) + 5;
+            }
+        }
+        public int Speed_Full
+        {
+            get
+            {
+                return ((Speed * Level) / 50) + 5;
+            }
+        }
+        public int SpecialDefense_Full
+        {
+            get
+            {
+                return ((SpecialDefense_base * Level) / 50) + 5;
+            }
+        }
+        public int SpecialAttack_Full
+        {
+            get
+            {
+                return ((SpecialAttack_base * Level) / 50) + 5;
+            }
+        }
     }
 }
