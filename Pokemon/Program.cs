@@ -34,11 +34,16 @@ namespace Pokemon
             Mewtwo.Speed = 130;
             Console.WriteLine("Mewtwo:");
             Console.WriteLine("Full HP: " + Mewtwo.HP_Full + " Total: " + Mewtwo.Total + " Average: " + Mewtwo.Average);
+            Console.WriteLine("Tot welk lvl wil je checken?");
+            int lvl = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("LevelUpTester: ");
-            for (int i = 0; i < 20; i++)
+            for (int i = 1; i < lvl; i++)
             {
+                Console.WriteLine("Level " + i);
                 Squirtle.LevelUpTester(i);
+                System.Threading.Thread.Sleep(500);
                 Mewtwo.LevelUpTester(i);
+                System.Threading.Thread.Sleep(500);
             }
             Console.ReadLine();
 
