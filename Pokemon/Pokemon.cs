@@ -15,7 +15,30 @@ namespace Pokemon
         private int specialattack_base;
         private int specialdefense_base;
         private int speed;
+        static int verhoogde_levels;
+        static int aantal_battles;
+        static int aantal_draws;
+        static int aantal_generated;
+        static bool levellingallowed;
 
+        public Pokemon()
+        {
+            HP_Base = 10;
+            Attack_base = 10;
+            Defense_base = 10;
+            SpecialAttack_base = 10;
+            SpecialDefense_base = 10;
+            Speed = 10;
+        }
+        public Pokemon(int health, int attack, int defense, int specialattack, int specialdefense, int speed)
+        {
+            HP_Base = health;
+            Attack_base = attack;
+            Defense_base = defense;
+            SpecialAttack_base = specialattack;
+            SpecialDefense_base = specialdefense;
+            Speed = speed;
+        }
         public int HP_Base
         {
             get { return hp_base; }
@@ -73,11 +96,19 @@ namespace Pokemon
         }
         public void VerhoogLevel()
         {
-            Level++;
+            if (Levelling_Allowed)
+            {
+                Level++;
+            }
+            else
+            {
+                Console.WriteLine("Levelling is niet allowed");
+            }
         }
         public void VerhoogLevel(int aantal)
         {
             Level = Level + aantal;
+            Verhoogde_Levels += 1;
         }
         public int Average
         {
@@ -161,6 +192,142 @@ namespace Pokemon
             Console.WriteLine("     *Defense = " + Defense_Full);
             Console.WriteLine("     *Special Attack = " + SpecialAttack_Full);
             Console.WriteLine("     *Special Defense = " + SpecialDefense_Full);
+        }
+        static Pokemon GeneratePokemon()
+        {
+            Pokemon poke = new Pokemon();
+            Console.WriteLine("Geef de naam van je favoriete pokemon in: ");
+            poke.Name = Console.ReadLine();
+            Console.WriteLine("Geef nu het type van deze pokemon in: ");
+            poke.Type = Console.ReadLine();
+            Console.WriteLine("Geef nu de nummer van de pokemon in: ");
+            poke.Nummer = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geef nu de base HP in: ");
+            poke.HP_Base = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geef nu de base Attack in: ");
+            poke.Attack_base = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geef nu de base Defense in: ");
+            poke.Defense_base = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geef nu de base Special Attack in: ");
+            poke.SpecialAttack_base = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Geef nu de base Special Defense in: ");
+            poke.SpecialDefense_base = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("En als laatste nog de base Speed: ");
+            poke.Speed = Convert.ToInt32(Console.ReadLine());
+            System.Threading.Thread.Sleep(500);
+            Console.WriteLine("Tot welk lvl moet de pokemon geleveled worden?");
+            int lvl = Convert.ToInt32(Console.ReadLine());
+            poke.LevelUpTester(lvl);
+            System.Threading.Thread.Sleep(500);
+            poke.ShowInfo();
+            return poke;
+        }
+        static Pokemon GeneratorPokemon()
+        {
+            Random R = new Random();
+            Pokemon poke = new Pokemon();
+            poke.HP_Base = R.Next(1, 20);
+            poke.Attack_base = R.Next(20, 100);
+            poke.Defense_base = R.Next(20, 100);
+            poke.SpecialAttack_base = R.Next(20, 150);
+            poke.SpecialDefense_base = R.Next(20, 150);
+            poke.Speed = R.Next(10, 100);
+            Aantal_Generated += 1;
+            return poke;
+        }
+        static int Battle(Pokemon poke1, Pokemon poke2)
+        {
+            Aantal_Battles += 1;
+            if (poke1 == null || poke2 == null)
+            {
+                Console.WriteLine("Een of beide van de pokemon bestaat niet. Het programma zal nu afsluiten...");
+                System.Threading.Thread.Sleep(500);
+                Environment.Exit(0);
+            }
+            int Full_Poke1 = poke1.Total;
+            int Full_Poke2 = poke2.Total;
+            if (Full_Poke1 < Full_Poke2)
+            {
+                Console.WriteLine(poke2.Name + " wint de battle!");
+                poke2.VerhoogLevel();
+                return 1;
+            }
+            if (Full_Poke1 > Full_Poke2)
+            {
+                Console.WriteLine(poke1.Name + " wint de battle!");
+                poke1.VerhoogLevel();
+                return 1;
+            }
+            if (Full_Poke1 == Full_Poke2)
+            {
+                Console.WriteLine("Niemand wint (gelijkspel)");
+                Aantal_Draws += 1;
+                return 0;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+        
+
+        static int Verhoogde_Levels
+        {
+            get { return verhoogde_levels; }
+            set { verhoogde_levels = value; }
+        }
+        static int Aantal_Battles
+        {
+            get
+            {
+                return aantal_battles;
+            }
+            set
+            {
+                aantal_battles = value;
+            }
+        }
+        static int Aantal_Draws
+        {
+            get
+            {
+                return aantal_draws;
+            }
+            set
+            {
+                aantal_draws = value;
+            }
+        }
+        static int Aantal_Generated
+        {
+            get
+            {
+                return aantal_generated;
+            }
+            set
+            {
+                aantal_generated = value;
+            }
+        }
+        static void Info()
+        {
+            Console.WriteLine("Samenvatting van de spelen:");
+            Console.WriteLine("Aantal verhoogde levels: " + Verhoogde_Levels);
+            Console.WriteLine("Aantal battles: "+ Aantal_Battles);
+            Console.WriteLine("Aantal Draws: "+ Aantal_Draws);
+            Console.WriteLine("Aantal gegenereerde pokemon: " + Aantal_Generated);
+        }
+        static bool Levelling_Allowed
+        {
+            get
+            {
+                return levellingallowed;
+            }
+            set
+            {
+                levellingallowed = value;
+            }
         }
     }
 }
